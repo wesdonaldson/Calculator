@@ -6,51 +6,89 @@ import java.util.*;
  */
 public class Display {
 
-    public static void main(String[] args) {
+    String answer;
+    Calculations calc = new Calculations();
+    private String currentDisplay;
+    private int displayIntegerNumber;
+    private Scanner input = new Scanner(System.in);
+    private int mode;
 
 
-
-        Scanner scan = new Scanner(System.in);
-        int mode;
-        int choice;
+    public void changeMode() {
 
         System.out.println("Display Menu. Chose option below");
         System.out.println("1. Binary");
         System.out.println("2. Octal");
-        System.out.println("3. Decimal");
-        System.out.println("4. Hexadecimal");
+        System.out.println("3. Hexadecimal");
+        typeChoice();
+    }
 
-        mode = scan.nextInt();
 
 
-        if (mode == 1) {
+    public void typeChoice() {
 
-            System.out.println("--Binary Menu--");
-            System.out.println("0, 1, 10, 11, 100, 101, 1000, 1001, etc...");
-            System.out.println("Push 0 to go back");
-            choice = scan.nextInt();
-                if(choice == 0) {
+        int choice = input.nextInt();
+        if (choice < 1 || choice > 4) {
+            while (choice < 1 || choice > 4) {
 
-                    System.out.println("Display Menu. Chose option below");
-                    System.out.println("1. Binary");
-                    System.out.println("2. Octal");
-                    System.out.println("3. Decimal");
-                    System.out.println("4. Hexadecimal");
+                System.out.println("Invalid input");
+                choice = input.nextInt();
 
-                } else {
-
-                    System.out.println("Invalid option");
-
-                }
-        } else if (mode == 2) {
-
-            System.out.println("--Octal Menu--");
-            System.out.println("Ocatal number system: 0-7");
+            }
+            mode = choice;
+        } else {
+            outPut(choice);
+            mode = choice;
         }
 
+    }
 
+
+
+    public String outPut(int choice) {
+
+        System.out.println("Chose number");
+        int num = input.nextInt();
+
+        switch (choice) {
+
+            case 1:
+
+
+                answer = calc.toBinaryString(num);
+                System.out.println(answer + " Binary conversion");
+
+
+                break;
+
+            case 2:
+
+                answer = calc.toOctalString(num);
+                System.out.println(answer + " Octal conversion");
+
+                break;
+
+            case 3:
+
+                answer = calc.toHexaDecimalString(num);
+                System.out.println(answer + " Hexadecimal conversion");
+
+                break;
+
+            default:
+
+                System.out.println("Not valid");
+
+        }
+
+        return answer;
     }
 }
+
+
+
+
+
 
 
 

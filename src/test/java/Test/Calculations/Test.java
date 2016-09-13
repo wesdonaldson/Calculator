@@ -1,11 +1,13 @@
 package Test.Calculations;
+
 import java.util.*;
+
 /**
  * Created by wesleydonaldson on 9/12/16.
  */
 public class Test {
 
-    public static int main(String args[]) {
+    public static void main(String[] args) {
 
 
         Scanner scan = new Scanner(System.in);
@@ -25,41 +27,42 @@ public class Test {
         double answer;
 
 
-        switch (choice) {
+        switch (choice) {   //Takes user's input to chose operator
 
 
             case 1:
 
-
-            answer = firstNum + secNum;
-            System.out.println("Total: " + answer);
+                answer = firstNum + secNum;
+                System.out.println("Total: " + answer);
             break;
 
             case 2:
 
                 answer = firstNum - secNum;
-            System.out.println(firstNum - secNum);
+                System.out.println(firstNum - secNum);
             break;
 
             case 3:
 
                 answer = firstNum * secNum;
-            System.out.println("Total: " + answer);
+                System.out.println("Total: " + answer);
 
             case 4:
 
                 answer = firstNum / secNum;
-            System.out.println("Total: " + answer);
+                System.out.println("Total: " + answer);
             break;
 
             default:
+
+
                 System.out.println("Invalid number");
-                break;
+             break;
 
 
         }
 
-        return answer;
+
     }
 }
 

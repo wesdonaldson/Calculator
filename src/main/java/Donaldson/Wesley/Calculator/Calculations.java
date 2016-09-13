@@ -5,27 +5,29 @@ package Donaldson.Wesley.Calculator;
  */
 public class Calculations {
 
-    double add(double a, double b) {
+
+
+    public static double add(double a, double b) {
 
         return a+b;
     }
 
-    double subtract(double a, double b) {
+    public static double subtract(double a, double b) {
 
         return a-b;
     }
 
-    double multiply(double a, double b) {
+    public static double multiply(double a, double b) {
 
         return a*b;
     }
 
-    double divide(double a, double b) {
+    public static double divide(double a, double b) {
 
         return a/b;
     }
 
-    double pow(double a, double b) {
+    public static double pow(double a, double b) {
 
         double answer = a;
 
@@ -36,10 +38,34 @@ public class Calculations {
         return answer;
     }
 
-    double sqrt(double a) {
+    public static double sqrt(double a) {
 
         return Math.sqrt(a);
     }
+
+    public static double squareRoot(double a) {
+
+        return a * a;
+    }
+
+    public static String toBinaryString(int i) {
+
+
+        return Integer.toBinaryString(i);
+    }
+
+    public static String toOctalString(int i) {
+
+        return Integer.toOctalString(i);
+    }
+
+    public static String toHexaDecimalString(int i) {
+
+        return Integer.toHexString(i);
+    }
+
+
+
 
 
 }

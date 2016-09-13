@@ -1,4 +1,6 @@
 package Donaldson.Wesley.Calculator;
+
+
 import java.util.Scanner;
 import java.util.*;
 import java.lang.Math;
@@ -7,79 +9,127 @@ import java.lang.Math;
  */
 public class Calculator {
 
-    public static void main(String[] args) {
+    private TrigMethods trigMethod = new TrigMethods();
+    private Display display = new Display();
+    private boolean running = false;
+    int firstNum;
+    int secNum;
+    double answer;
+    public void runCalculator() {
+
+
+
+
+        running = true;
+        while (running) {
 
         Scanner scan = new Scanner(System.in);
-        double firstNum;
-        double secNum;
-        double answer;
-        int choice;
-        int num1;
-        int num2;
-        Display display = new Display();
 
-        System.out.println("Button 1 - Add");
-        System.out.println("Button 2 - Subtract");
-        System.out.println("Button 3 - Multiply");
-        System.out.println("Button 4 - Divide");
-        System.out.println("Chose a operator");
-            choice = scan.nextInt();
+        System.out.println("Choose operator: ");
+        System.out.println("1: Add");
+        System.out.println("2: Subtract");
+        System.out.println("3: Multiply");
+        System.out.println("4. Divide");
+        System.out.println("5. Change mode");
+        System.out.println("6. Trig functions");
+        System.out.println("7. Clear");
 
-        if (choice == 1) {
+        int choice = scan.nextInt();
 
-            System.out.println("You chose addition");
-            System.out.println("Chose number: ");
-            firstNum = scan.nextDouble();
 
-            System.out.println("Chose second number: ");
-            secNum = scan.nextDouble();
 
-            answer = firstNum + secNum;
-            System.out.println(firstNum + "+" + secNum + "=" + answer);
 
-        }else if (choice == 2) {
 
-            System.out.println("You chose subtraction");
-            System.out.print("Chose number: ");
-            firstNum = scan.nextDouble();
+            switch (choice) {
 
-            System.out.println("Chose number: ");
-            secNum = scan.nextDouble();
 
-            answer = firstNum - secNum;
-            System.out.println(firstNum + "-" + secNum + " =" + answer);
-        } else if (choice == 3) {
 
-            System.out.println("You chose multiply");
-            System.out.println("Chose number: ");
-            firstNum = scan.nextDouble();
+                case 1:
 
-            System.out.println("Chose second number: ");
-            secNum = scan.nextDouble();
+                    numberChoice();
 
-            answer = firstNum * secNum;
-            System.out.println(firstNum + "*" + secNum + "=" + answer);
-        } else if (choice == 4){
+                    answer = Calculations.add(firstNum, secNum);
+                    System.out.println("Total :" + "" + answer);
+                    break;
 
-            System.out.println("You chose division");
-            System.out.println("Chose a number: ");
-            firstNum = scan.nextDouble();
+                case 2:
 
-            System.out.println("Chose a second number: ");
-            secNum = scan.nextDouble();
+                    numberChoice();
 
-                if (firstNum == 0|| secNum == 0) {
+                    answer = Calculations.subtract(firstNum, secNum);
+                    System.out.println("Total :" + "" + answer);
+                    break;
 
-                    System.out.println("Err cant divide by 0");
-                    return;
-                }
+                case 3:
 
-            answer = firstNum / secNum;
-            System.out.println(firstNum + "/" + secNum + "=" + answer);
+                    numberChoice();
+
+                    answer = Calculations.multiply(firstNum, secNum);
+                    System.out.println("Total :" + "" + answer);
+                    break;
+
+                case 4:
+
+                    numberChoice();
+
+                    answer = Calculations.divide(firstNum, secNum);
+                        if (firstNum == 0 || secNum == 0) {
+
+                            System.out.println("Err");
+                            running = false;
+                        } else {
+                            System.out.println("Total :" + "" + answer);
+                        }
+                    break;
+
+
+                case 5:
+
+                    display.changeMode();
+
+                break;
+
+                case 6:
+
+                    trigMethod.trigFuncDegrees();
+
+                    break;
+
+                case 7:
+
+                    running = false;
+                    System.out.println("Clear");
+                    break;
+
+                default:
+
+                    System.out.println("Invalid number");
+                break;
+            }
+
+            System.out.println("Do you want to clear yes or no?");
+            String clear = scan.next();
+
+            if (clear.equalsIgnoreCase("yes")) {
+
+                running = false;
+            }
+
+
+
+
         }
-
-
     }
 
-        }
+    public void numberChoice() {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Chose number: ");
+        firstNum = scan.nextInt();
+
+        System.out.println("Chose second number: ");
+        secNum = scan.nextInt();
+
+    }
+}
 
