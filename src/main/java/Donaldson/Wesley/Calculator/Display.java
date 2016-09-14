@@ -6,12 +6,15 @@ import java.util.*;
  */
 public class Display {
 
-    String answer;
-    Calculations calc = new Calculations();
-    private String currentDisplay;
-    private int displayIntegerNumber;
-    private Scanner input = new Scanner(System.in);
-    private int mode;
+
+
+
+        String answer;
+        Calculations calc = new Calculations();
+        private String currentDisplay;
+        private int displayIntegerNumber;
+        private Scanner input = new Scanner(System.in);
+        private int mode;
 
 
     public void changeMode() {
@@ -22,7 +25,6 @@ public class Display {
         System.out.println("3. Hexadecimal");
         typeChoice();
     }
-
 
 
     public void typeChoice() {
@@ -42,7 +44,6 @@ public class Display {
         }
 
     }
-
 
 
     public String outPut(int choice) {
@@ -84,6 +85,7 @@ public class Display {
         return answer;
     }
 }
+
 
 
 

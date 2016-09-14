@@ -11,7 +11,5 @@ public class App {
 
         Calculator calculator = new Calculator();
         calculator.runCalculator();
-
-
     }
 }
